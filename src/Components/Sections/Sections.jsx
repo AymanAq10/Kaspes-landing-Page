@@ -5,8 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { lazy } from 'react';
 import * as backgrounds from '../../backgrounds/backgrounds';
 import * as portfolioImages from '../../PortfolioImages/Portfolio';
-import profile1 from "../../assets/profile1.jpg"
-import profile2 from "../../assets/profile2.jpg"
+
 const Portfolio = lazy(() => import('../../PortfolioProjects/Portfolio'));
 const SpeacialHeading = lazy(() => import('../Speacial-heading/SpeacialHeading'));
 
@@ -15,20 +14,72 @@ const SpeacialHeading = lazy(() => import('../Speacial-heading/SpeacialHeading')
 
 
 const Sections = () => {
-
   const [bulets, setBulets] = useState(1);
   const [background, setBackground] = useState(backgrounds.background1);
   const [filterNumber, setFilterNumber] = useState(0);
   const [projects, setprojects] = useState([]);
   const [loading, setloading] = useState(true)
-
-  const backgroundImages = [
+  const [backgroundImages, setBackgroundImages] = useState([
     backgrounds.background1,
     backgrounds.background2,
     backgrounds.background5,
-  ];
+  ]);
+
+  const [Profiles, SetProfiles] = useState([
+    backgrounds.profile1,
+    backgrounds.profile2,
+  ]);
 
 
+  const supportsWebp = () => {
+    // Check if the environment supports creating a canvas element
+    if (typeof document === 'undefined' || !document.createElement) {
+      return false;
+    }
+
+    const elem = document.createElement('canvas');
+    if (!!(elem.getContext && elem.getContext('2d'))) {
+      // Check if canvas supports toDataURL with 'image/webp'
+      return elem.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+    }
+
+    return false;
+  };
+
+  const getProfile = (e) => {
+    if (supportsWebp()) {
+      // Use WebP version if supported
+      switch (e) {
+        case 1:
+          return backgrounds.profile1webp;
+        case 2:
+          return backgrounds.profile2webp;
+        default:
+          return backgrounds.profile1webp;
+      }
+    } else {
+      // Use JPEG/PNG version as fallback
+      return Profiles[e - 1];
+    }
+  };
+  const getBackgroundImage = () => {
+    if (supportsWebp()) {
+      // Use WebP version if supported
+      switch (bulets) {
+        case 1:
+          return backgrounds.background1Webp;
+        case 2:
+          return backgrounds.background2Webp;
+        case 3:
+          return backgrounds.background5Webp;
+        default:
+          return backgrounds.background1Webp; // Default to first image
+      }
+    } else {
+      // Use JPEG/PNG version as fallback
+      return backgroundImages[bulets - 1];
+    }
+  };
   useEffect(() => {
     let li = document.querySelectorAll('.bulets li');
     li.forEach((bulet) => {
@@ -48,7 +99,6 @@ const Sections = () => {
       portfolioImages.Project8,
     ])
     { projects && setloading(false) }
-    console.log(bulets);
   }, [bulets]);
 
   const removeActiveClass = (e) => {
@@ -65,7 +115,7 @@ const Sections = () => {
 
   return (
     <>
-      <section className='welcome-page overlay' style={{ backgroundImage: `url(${background})` }}>
+      <section className='welcome-page overlay' style={{ backgroundImage: `url(${getBackgroundImage()})` }}>
         <FontAwesomeIcon icon={faAngleLeft} className='arrow Left' onClick={() => setBulets(bulets > 1 ? bulets - 1 : backgroundImages.length)} />
         <div className="welcome-body">
           <div className="body-content">
@@ -181,8 +231,7 @@ const Sections = () => {
             </div>
             <div className="Testimonials-body">
               <div className="profile">
-
-                <img src={profile1} alt="profile1" />
+                <img src={getProfile(1)} alt="profile1" />
                 <div className="text">
                   <p>Curabitur arcu erat, accumsan id imperdiet et,
                     porttitor at sem. Mauris blandit aliquet elit, eget
@@ -192,8 +241,7 @@ const Sections = () => {
                 </div>
               </div>
               <div className="profile">
-
-                <img src={profile2} alt="profile1" />
+                <img src={getProfile(2)} alt="profile2" />
                 <div className="text">
                   <p>Curabitur arcu erat, accumsan id imperdiet et,
                     porttitor at sem. Mauris blandit aliquet elit, eget

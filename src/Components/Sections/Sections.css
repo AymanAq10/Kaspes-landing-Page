@@ -1,7 +1,7 @@
 /* Welcome Section Start */
 
 .welcome-page {
-    background: url('../../backgrounds/background_1.jpg');
+    background: url('../../backgrounds/background_1.webp');
     background-size: cover;
     height: 100vh;
     display: flex;
@@ -229,7 +229,7 @@ section.Designs {
     position: relative;
     justify-content: space-between;
     align-items: center;
-    background: url('/src/backgrounds/background_1.jpg');
+    background: url('/src/backgrounds/background_1.webp');
     overflow: hidden;
     background-position: center;
     background-size: contain;
@@ -439,7 +439,7 @@ section.Designs.overlay::before {
 /* Special-Design Start */
 
 section.Special-Design.Designs {
-    background: url("../../backgrounds/background_5.jpg");
+    background: url("../../backgrounds/background_5.webp");
     background-size: cover;
     background-position: bottom;
     height: 650px;
@@ -833,7 +833,7 @@ section.Special-Design.Designs {
 /* Quote Start */
 section.Quote {
     height: 350px;
-    background: url(/src/backgrounds/background_7.jpg);
+    background: url(/src/backgrounds/background_7.webp);
     background-position: center;
     background-size: cover;
     display: flex;
