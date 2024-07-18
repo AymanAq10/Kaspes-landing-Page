@@ -1,0 +1,55 @@
+section.MainHeading {
+    text-align: center;
+}
+.MainHeading h2 {
+    font-size: 30px;
+    font-weight: normal;
+    text-transform: uppercase;
+    width: fit-content;
+    color: #353235;
+    padding: 20px 0;
+    position: relative;
+    margin:0 auto 15px auto;;
+}
+
+.MainHeading p {
+    font-size: 13px;
+    color: #777;
+    font-weight: 300;
+    width: 450px;
+    max-width: 100%;
+    margin: 0 auto;
+    line-height: 1.8;
+    margin-bottom: 100px;
+    letter-spacing: 1px;
+}
+
+.MainHeading h2::before {
+    content: '';
+    position: absolute;
+    width: 75%;
+    margin: 0 auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background: #000;
+}
+
+.MainHeading h2::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #000;
+    z-index: 10;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}

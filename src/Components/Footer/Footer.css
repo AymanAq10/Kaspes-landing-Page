@@ -1,0 +1,73 @@
+/* Footer start */
+footer {
+    background: url(/src/backgrounds/background_1.jpg);
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center 60%;
+    position: relative;
+}
+footer img{
+    z-index: 20;
+}
+footer.overlay::before{
+    background: rgb(0 0 0 / 60%);
+    z-index: 10;
+}
+
+footer .social-links h3 {
+    font-size: 22px;
+    color: rgb(255 255 255 / 90%);
+    font-weight: 400;
+    text-transform: uppercase;
+    padding-bottom: 14px;
+    text-align: center;
+    position: relative;
+    z-index: 20;
+}
+
+footer .social-links h3::after {
+    content: "";
+    position: absolute;
+    width: 230px;
+    height: 1px;
+    background: rgb(255 255 255 / 50%);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+}
+
+.social-links {
+    margin: 0 auto;
+    padding: 40px 0;
+    z-index: 20;
+}
+
+.social-links svg {
+    font-size: 16px;
+    color: rgb(255 255 255 / 90%);
+    margin-top: 15px;
+    z-index: 20;
+}
+
+.social-links svg:not(:last-of-type) {
+    margin: 0 30px 0 0;
+}
+
+footer p {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 400;
+    z-index: 20;
+}
+
+footer p span {
+    color: var(--main-color);
+    z-index: 20;
+}
+
+/* Footer End */
