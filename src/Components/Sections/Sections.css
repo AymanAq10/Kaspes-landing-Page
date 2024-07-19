@@ -385,7 +385,9 @@ section.Designs.overlay::before {
     margin: 0 5px;
     z-index: 9999;
 }
-
+.Portfolio-images .image span {
+    height: 100%;
+}
 
 .Portfolio-images .image::before {
     content: "\002B";
