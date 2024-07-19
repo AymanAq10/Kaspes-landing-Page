@@ -604,6 +604,8 @@ section.Special-Design.Designs {
 
     .Designs .welcome-body {
         row-gap: 2rem;
+        justify-content: center;
+        text-align: center;
     }
 
     .About-Us .Special-Design.Designs .welcome-body {
